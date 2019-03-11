@@ -1,0 +1,184 @@
+BUG: Bad page map in process systemd-udevd  pte:1801500008015 pmd:518b5067
+addr:0000000091dffcf9 vm_flags:00000070 anon_vma:          (null) mapping:00000000c220ad1f index:1d
+file:libnss_nis-2.24.so fault:ext4_filemap_fault mmap:ext4_file_mmap readpage:ext4_readpage
+CPU: 0 PID: 5045 Comm: systemd-udevd Not tainted 5.0.0 #4
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Bochs 01/01/2011
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0xca/0x13e lib/dump_stack.c:113
+ print_bad_pte.cold.120+0x2c7/0x2f0 mm/memory.c:526
+ _vm_normal_page+0x111/0x2b0 mm/memory.c:612
+ zap_pte_range mm/memory.c:1063 [inline]
+ zap_pmd_range mm/memory.c:1192 [inline]
+ zap_pud_range mm/memory.c:1221 [inline]
+ zap_p4d_range mm/memory.c:1242 [inline]
+ unmap_page_range+0x89b/0x1950 mm/memory.c:1263
+ unmap_single_vma+0x198/0x300 mm/memory.c:1308
+ unmap_vmas+0x172/0x280 mm/memory.c:1339
+ exit_mmap+0x27d/0x4a0 mm/mmap.c:3139
+ __mmput kernel/fork.c:1047 [inline]
+ mmput+0xd0/0x3b0 kernel/fork.c:1068
+ exit_mm kernel/exit.c:545 [inline]
+ do_exit+0xa55/0x2e00 kernel/exit.c:862
+ do_group_exit+0x125/0x350 kernel/exit.c:979
+ __do_sys_exit_group kernel/exit.c:990 [inline]
+ __se_sys_exit_group kernel/exit.c:988 [inline]
+ __x64_sys_exit_group+0x3a/0x50 kernel/exit.c:988
+ do_syscall_64+0xbc/0x4e0 arch/x86/entry/common.c:290
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x7fef6a355618
+Code: Bad RIP value.
+RSP: 002b:00007ffdb910d4f8 EFLAGS: 00000206 ORIG_RAX: 00000000000000e7
+RAX: ffffffffffffffda RBX: 00007ffdb910d5c0 RCX: 00007fef6a355618
+RDX: 0000000000000000 RSI: 000000000000003c RDI: 0000000000000000
+RBP: 00007ffdb910d670 R08: 00000000000000e7 R09: fffffffffffffe48
+R10: 00000000ffffffff R11: 0000000000000206 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000000003 R15: 000000000000000e
+BUG: Bad page map in process systemd-udevd  pte:3801500028015 pmd:518b5067
+addr:000000001a0e36d9 vm_flags:00000070 anon_vma:          (null) mapping:00000000c220ad1f index:1e
+file:libnss_nis-2.24.so fault:ext4_filemap_fault mmap:ext4_file_mmap readpage:ext4_readpage
+CPU: 0 PID: 5045 Comm: systemd-udevd Tainted: G    B             5.0.0 #4
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Bochs 01/01/2011
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0xca/0x13e lib/dump_stack.c:113
+ print_bad_pte.cold.120+0x2c7/0x2f0 mm/memory.c:526
+ _vm_normal_page+0x111/0x2b0 mm/memory.c:612
+ zap_pte_range mm/memory.c:1063 [inline]
+ zap_pmd_range mm/memory.c:1192 [inline]
+ zap_pud_range mm/memory.c:1221 [inline]
+ zap_p4d_range mm/memory.c:1242 [inline]
+ unmap_page_range+0x89b/0x1950 mm/memory.c:1263
+ unmap_single_vma+0x198/0x300 mm/memory.c:1308
+ unmap_vmas+0x172/0x280 mm/memory.c:1339
+ exit_mmap+0x27d/0x4a0 mm/mmap.c:3139
+ __mmput kernel/fork.c:1047 [inline]
+ mmput+0xd0/0x3b0 kernel/fork.c:1068
+ exit_mm kernel/exit.c:545 [inline]
+ do_exit+0xa55/0x2e00 kernel/exit.c:862
+ do_group_exit+0x125/0x350 kernel/exit.c:979
+ __do_sys_exit_group kernel/exit.c:990 [inline]
+ __se_sys_exit_group kernel/exit.c:988 [inline]
+ __x64_sys_exit_group+0x3a/0x50 kernel/exit.c:988
+ do_syscall_64+0xbc/0x4e0 arch/x86/entry/common.c:290
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x7fef6a355618
+Code: Bad RIP value.
+RSP: 002b:00007ffdb910d4f8 EFLAGS: 00000206 ORIG_RAX: 00000000000000e7
+RAX: ffffffffffffffda RBX: 00007ffdb910d5c0 RCX: 00007fef6a355618
+RDX: 0000000000000000 RSI: 000000000000003c RDI: 0000000000000000
+RBP: 00007ffdb910d670 R08: 00000000000000e7 R09: fffffffffffffe48
+R10: 00000000ffffffff R11: 0000000000000206 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000000003 R15: 000000000000000e
+BUG: Bad page map in process systemd-udevd  pte:00048015 pmd:518b5067
+page:ffffea0000001200 count:0 mapcount:-1 mapping:0000000000000000 index:0x0
+flags: 0x0()
+raw: 0000000000000000 ffffea0000001208 ffffea0000001208 0000000000000000
+raw: 0000000000000000 0000000000000000 00000000fffffffe 0000000000000000
+page dumped because: bad pte
+addr:000000007c382a3a vm_flags:00000070 anon_vma:          (null) mapping:00000000c220ad1f index:1f
+file:libnss_nis-2.24.so fault:ext4_filemap_fault mmap:ext4_file_mmap readpage:ext4_readpage
+CPU: 0 PID: 5045 Comm: systemd-udevd Tainted: G    B             5.0.0 #4
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Bochs 01/01/2011
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0xca/0x13e lib/dump_stack.c:113
+ print_bad_pte.cold.120+0x2c7/0x2f0 mm/memory.c:526
+ zap_pte_range mm/memory.c:1092 [inline]
+ zap_pmd_range mm/memory.c:1192 [inline]
+ zap_pud_range mm/memory.c:1221 [inline]
+ zap_p4d_range mm/memory.c:1242 [inline]
+ unmap_page_range+0x144b/0x1950 mm/memory.c:1263
+ unmap_single_vma+0x198/0x300 mm/memory.c:1308
+ unmap_vmas+0x172/0x280 mm/memory.c:1339
+ exit_mmap+0x27d/0x4a0 mm/mmap.c:3139
+ __mmput kernel/fork.c:1047 [inline]
+ mmput+0xd0/0x3b0 kernel/fork.c:1068
+ exit_mm kernel/exit.c:545 [inline]
+ do_exit+0xa55/0x2e00 kernel/exit.c:862
+ do_group_exit+0x125/0x350 kernel/exit.c:979
+ __do_sys_exit_group kernel/exit.c:990 [inline]
+ __se_sys_exit_group kernel/exit.c:988 [inline]
+ __x64_sys_exit_group+0x3a/0x50 kernel/exit.c:988
+ do_syscall_64+0xbc/0x4e0 arch/x86/entry/common.c:290
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x7fef6a355618
+Code: Bad RIP value.
+RSP: 002b:00007ffdb910d4f8 EFLAGS: 00000206 ORIG_RAX: 00000000000000e7
+RAX: ffffffffffffffda RBX: 00007ffdb910d5c0 RCX: 00007fef6a355618
+RDX: 0000000000000000 RSI: 000000000000003c RDI: 0000000000000000
+RBP: 00007ffdb910d670 R08: 00000000000000e7 R09: fffffffffffffe48
+R10: 00000000ffffffff R11: 0000000000000206 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000000003 R15: 000000000000000e
+kasan: CONFIG_KASAN_INLINE enabled
+kasan: GPF could be caused by NULL-ptr deref or user memory access
+general protection fault: 0000 [#1] SMP KASAN PTI
+CPU: 1 PID: 5040 Comm: syz-executor.2 Tainted: G    B             5.0.0 #4
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Bochs 01/01/2011
+RIP: 0010:__read_once_size include/linux/compiler.h:193 [inline]
+RIP: 0010:compound_head include/linux/page-flags.h:143 [inline]
+RIP: 0010:PageSwapBacked include/linux/page-flags.h:307 [inline]
+RIP: 0010:PageSwapCache include/linux/page-flags.h:352 [inline]
+RIP: 0010:free_swap_cache mm/swap_state.c:266 [inline]
+RIP: 0010:free_pages_and_swap_cache+0x6b/0x260 mm/swap_state.c:294
+Code: 00 00 e8 68 1b de ff 48 89 e8 48 c1 e8 03 42 80 3c 28 00 0f 85 c0 01 00 00 48 8b 5d 00 48 8d 43 08 48 89 44 24 08 48 c1 e8 03 <42> 80 3c 28 00 0f 85 be 01 00 00 48 8b 43 08 31 ff 49 89 df 48 89
+RSP: 0018:ffff88803eb6f670 EFLAGS: 00010207
+RAX: 0000000000009003 RBX: 0000000000048017 RCX: ffffffff815dce5a
+RDX: 0000000000000000 RSI: ffffffff815dce68 RDI: 0000000000000005
+RBP: ffff8880518b7010 R08: ffff88804a05c740 R09: fffff94000264c16
+R10: fffff94000264c16 R11: ffffea00013260b7 R12: 0000000000000000
+R13: dffffc0000000000 R14: 0000000000028017 R15: ffff88803eb6f9e8
+FS:  00007f4f6e518700(0000) GS:ffff88806d100000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f5e03c33db8 CR3: 00000000428a2004 CR4: 00000000001606e0
+Call Trace:
+ tlb_flush_mmu_free+0xba/0x150 mm/mmu_gather.c:74
+ zap_pte_range mm/memory.c:1157 [inline]
+ zap_pmd_range mm/memory.c:1192 [inline]
+ zap_pud_range mm/memory.c:1221 [inline]
+ zap_p4d_range mm/memory.c:1242 [inline]
+ unmap_page_range+0x136a/0x1950 mm/memory.c:1263
+ unmap_single_vma+0x198/0x300 mm/memory.c:1308
+ unmap_vmas+0x172/0x280 mm/memory.c:1339
+ exit_mmap+0x27d/0x4a0 mm/mmap.c:3139
+ __mmput kernel/fork.c:1047 [inline]
+ mmput+0xd0/0x3b0 kernel/fork.c:1068
+ exit_mm kernel/exit.c:545 [inline]
+ do_exit+0xa55/0x2e00 kernel/exit.c:862
+ ? 0xffffffffa0008daa
+ do_group_exit+0x125/0x350 kernel/exit.c:979
+ get_signal+0x362/0x1c60 kernel/signal.c:2575
+ do_signal+0x8f/0x1660 arch/x86/kernel/signal.c:816
+ exit_to_usermode_loop+0x16b/0x1c0 arch/x86/entry/common.c:162
+ prepare_exit_to_usermode arch/x86/entry/common.c:197 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:268 [inline]
+ do_syscall_64+0x3da/0x4e0 arch/x86/entry/common.c:293
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x458849
+Code: 7d a6 fb ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 4b a6 fb ff c3 66 2e 0f 1f 84 00 00 00 00
+RSP: 002b:00007f4f6e517cf8 EFLAGS: 00000246 ORIG_RAX: 00000000000000ca
+RAX: 0000000000000001 RBX: 000000000072bf00 RCX: 0000000000458849
+RDX: 00000000004b7c32 RSI: 0000000000000081 RDI: 000000000072bf0c
+RBP: 000000000072bf08 R08: 0000000000000000 R09: 00007f4f6e518700
+R10: 0000000000000004 R11: 0000000000000246 R12: 000000000072bf0c
+R13: 0000000000000000 R14: 00007f4f6e5189c0 R15: 00007f4f6e518700
+Modules linked in:
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+---[ end trace 3b37ee34ce9bd760 ]---
+RIP: 0010:__read_once_size include/linux/compiler.h:193 [inline]
+RIP: 0010:compound_head include/linux/page-flags.h:143 [inline]
+RIP: 0010:PageSwapBacked include/linux/page-flags.h:307 [inline]
+RIP: 0010:PageSwapCache include/linux/page-flags.h:352 [inline]
+RIP: 0010:free_swap_cache mm/swap_state.c:266 [inline]
+RIP: 0010:free_pages_and_swap_cache+0x6b/0x260 mm/swap_state.c:294
+Code: 00 00 e8 68 1b de ff 48 89 e8 48 c1 e8 03 42 80 3c 28 00 0f 85 c0 01 00 00 48 8b 5d 00 48 8d 43 08 48 89 44 24 08 48 c1 e8 03 <42> 80 3c 28 00 0f 85 be 01 00 00 48 8b 43 08 31 ff 49 89 df 48 89
+RSP: 0018:ffff88803eb6f670 EFLAGS: 00010207
+RAX: 0000000000009003 RBX: 0000000000048017 RCX: ffffffff815dce5a
+RDX: 0000000000000000 RSI: ffffffff815dce68 RDI: 0000000000000005
+RBP: ffff8880518b7010 R08: ffff88804a05c740 R09: fffff94000264c16
+R10: fffff94000264c16 R11: ffffea00013260b7 R12: 0000000000000000
+R13: dffffc0000000000 R14: 0000000000028017 R15: ffff88803eb6f9e8
+FS:  00007f4f6e518700(0000) GS:ffff88806d100000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f5e03c33db8 CR3: 00000000428a2004 CR4: 00000000001606e0
